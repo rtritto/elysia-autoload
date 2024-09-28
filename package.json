@@ -3,14 +3,7 @@
 	"version": "1.4.0",
 	"author": "kravetsone",
 	"type": "module",
-	"types": "./dist/index.d.ts",
-	"module": "./dist/index.js",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
-		}
-	},
+	"exports": "./src/index.ts",
 	"description": "Plugin for Elysia which autoload all routes in directory and code-generate types for Eden with Bun.build support",
 	"homepage": "https://github.com/kravetsone/elysia-autoload",
 	"keywords": [
@@ -31,7 +24,6 @@
 		"lint": "bunx @biomejs/biome check src",
 		"lint:fix": "bun lint --apply"
 	},
-	"files": ["dist"],
 	"devDependencies": {
 		"@biomejs/biome": "1.9.2",
 		"@elysiajs/eden": "^1.1.3",
