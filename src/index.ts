@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from 'node:url'
 import {
 	type BaseMacro,
 	Elysia,
@@ -130,7 +131,8 @@ export async function autoload(options: AutoloadOptions = {}) {
 	for await (const filePath of sortByNestedParams(files)) {
 		const fullPath = path.join(directoryPath, filePath);
 
-		const file = await import(fullPath);
+		const fileURL = pathToFileURL(fullPath);
+		const file = await import(fileURL.href);
 
 		const importName =
 			typeof getImportName === "string" ? getImportName : getImportName(file);
